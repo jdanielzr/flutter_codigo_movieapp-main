@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'dart:convert';
 import 'package:flutter_codigo_movieapp/models/movie_detail_model.dart';
 import 'package:flutter_codigo_movieapp/models/movie_model.dart';

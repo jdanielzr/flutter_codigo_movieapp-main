@@ -11,9 +11,10 @@ import 'package:url_launcher/url_launcher.dart';
 import '../models/movie_backdrops_model.dart';
 import '../models/movie_cast_model.dart';
 
+//ignore: must_be_immutable
 class DetailPage extends StatefulWidget {
   int movieId;
-  DetailPage({required this.movieId});
+  DetailPage({super.key, required this.movieId});
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -34,7 +35,6 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
@@ -56,26 +56,20 @@ class _DetailPageState extends State<DetailPage> {
     });
 
     _apiService.getBackdropMovie(widget.movieId).then((value) {
-      if (value != null) {
-        movieBackdropModel = value;
-        getDataBackdrop = true;
-        verificarCarga();
-      }
+      movieBackdropModel = value;
+      getDataBackdrop = true;
+      verificarCarga();
     });
     _apiService.getCastMovie(widget.movieId).then((value) {
-      if (value != null) {
-        movieCastModel = value;
-        getDataCast = true;
-        verificarCarga();
-      }
+      movieCastModel = value;
+      getDataCast = true;
+      verificarCarga();
     });
 
     _apiService.getReviewMovie(widget.movieId).then((value) {
-      if (value != null) {
-        movieReviewModel = value;
-        getDataReview = true;
-        verificarCarga();
-      }
+      movieReviewModel = value;
+      getDataReview = true;
+      verificarCarga();
     });
   }
 
@@ -241,12 +235,13 @@ class _DetailPageState extends State<DetailPage> {
                               height: 54.0,
                               child: ElevatedButton.icon(
                                 onPressed: () async {
+                                  // ignore: no_leading_underscores_for_local_identifiers
                                   Uri _uri =
                                       Uri.parse(movieDetailModel!.homepage);
                                   await launchUrl(_uri);
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  primary: kBrandSecondaryColor,
+                                  backgroundColor: kBrandSecondaryColor,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
@@ -294,7 +289,7 @@ class _DetailPageState extends State<DetailPage> {
                             const SizedBox(
                               height: 16.0,
                             ),
-                            Text(
+                            const Text(
                               "Cast",
                               style: TextStyle(
                                 color: Colors.white,
@@ -329,10 +324,10 @@ class _DetailPageState extends State<DetailPage> {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20.0,
                             ),
-                            Text(
+                            const Text(
                               "Backdrop",
                               style: TextStyle(
                                 color: Colors.white,
@@ -366,7 +361,7 @@ class _DetailPageState extends State<DetailPage> {
                                 ],
                               ),
                             ),
-                            Text(
+                            const Text(
                               "Review",
                               style: TextStyle(
                                 color: Colors.white,
@@ -386,7 +381,7 @@ class _DetailPageState extends State<DetailPage> {
                                   )
                                   .toList(),
                             ]),
-                            SizedBox(
+                            const SizedBox(
                               height: 70.0,
                             ),
                           ],
@@ -397,7 +392,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ],
             )
-          : Center(
+          : const Center(
               child: CircularProgressIndicator(),
             ),
     );

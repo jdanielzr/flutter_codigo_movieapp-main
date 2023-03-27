@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//ignore: must_be_immutable
 class ItemCastWidget extends StatelessWidget {
   String name;
   String character;
@@ -35,17 +36,17 @@ class ItemCastWidget extends StatelessWidget {
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 13.0,
             ),
           ),
           Text(
-            this.knownForDepartment,
+            knownForDepartment,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white70,
               fontSize: 12.0,
             ),

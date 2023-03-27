@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_movieapp/pages/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-void main(){
-  runApp(MyApp());
+void main() {
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

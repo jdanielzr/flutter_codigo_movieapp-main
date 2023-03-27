@@ -1,33 +1,31 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_movieapp/models/movie_model.dart';
 import 'package:flutter_codigo_movieapp/services/api_service.dart';
 import 'package:flutter_codigo_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo_movieapp/ui/widgets/item_movie_widget.dart';
-import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-
   List<MovieModel> movies = [];
 
-
   @override
-  initState(){
+  initState() {
     super.initState();
     getData();
   }
 
-  getData(){
+  getData() {
+    // ignore: no_leading_underscores_for_local_identifiers
     APIService _apiService = APIService();
-    _apiService.getMovies().then((value){
+    _apiService.getMovies().then((value) {
       movies = value;
-      setState((){});
+      setState(() {});
     });
   }
 
@@ -44,7 +42,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: kBrandPrimaryColor,
       body: SafeArea(
@@ -53,13 +50,13 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
                             "Welcome, Fiorella",
                             style: TextStyle(
@@ -78,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
-                    const CircleAvatar(
+                    CircleAvatar(
                       backgroundColor: Colors.white12,
                       radius: 26.0,
                       backgroundImage: NetworkImage(
@@ -95,15 +92,14 @@ class _HomePageState extends State<HomePage> {
 
                 ListView.builder(
                   shrinkWrap: true,
-                  physics: ScrollPhysics(),
+                  physics: const ScrollPhysics(),
                   itemCount: movies.length,
-                  itemBuilder: (BuildContext context, int index){
+                  itemBuilder: (BuildContext context, int index) {
                     return ItemMovieWidget(
                       movieModel: movies[index],
                     );
                   },
                 ),
-
               ],
             ),
           ),

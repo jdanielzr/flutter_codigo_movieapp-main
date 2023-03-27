@@ -5,10 +5,12 @@ import 'package:flutter_codigo_movieapp/pages/detail_page.dart';
 import 'package:flutter_codigo_movieapp/ui/general/colors.dart';
 import 'package:flutter_codigo_movieapp/ui/widgets/line_widget.dart';
 
+//ignore: must_be_immutable
 class ItemMovieWidget extends StatelessWidget {
   MovieModel movieModel;
 
   ItemMovieWidget({
+    super.key,
     required this.movieModel,
   });
 
@@ -52,7 +54,8 @@ class ItemMovieWidget extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 15.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 12.0, vertical: 15.0),
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.0),
@@ -64,7 +67,7 @@ class ItemMovieWidget extends StatelessWidget {
                   children: [
                     Text(
                       movieModel.originalTitle,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,
                         fontWeight: FontWeight.w600,
@@ -94,19 +97,19 @@ class ItemMovieWidget extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.date_range,
                               color: Colors.white,
                               size: 18.0,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 6.0,
                             ),
                             Text(
                               movieModel.releaseDate
                                   .toString()
                                   .substring(0, 10),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                               ),
                             ),
@@ -114,17 +117,17 @@ class ItemMovieWidget extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.thumb_up,
                               color: Colors.white,
                               size: 18.0,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 6.0,
                             ),
                             Text(
                               movieModel.voteCount.toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                               ),
                             ),
@@ -144,11 +147,11 @@ class ItemMovieWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color(0xff23232D).withOpacity(0.92),
+                  color: const Color(0xff23232D).withOpacity(0.92),
                 ),
                 child: Text(
                   movieModel.voteAverage.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
                     fontWeight: FontWeight.w600,

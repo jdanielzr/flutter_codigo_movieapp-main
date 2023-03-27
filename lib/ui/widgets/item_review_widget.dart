@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../models/movie_review_model.dart';
 
+//ignore: must_be_immutable
 class ItemReviewWidget extends StatelessWidget {
   Result result;
 
   ItemReviewWidget({super.key, required this.result});
   String urlImage(String url) {
     if (!url.contains("https")) {
-      url = "https://image.tmdb.org/t/p/w500${url}";
+      url = "https://image.tmdb.org/t/p/w500$url";
     } else {
       url = url.replaceAll("/https", "https");
     }
@@ -32,7 +33,7 @@ class ItemReviewWidget extends StatelessWidget {
                   ? "https://objetivoligar.com/wp-content/uploads/2017/03/blank-profile-picture-973460_1280-580x580.jpg"
                   : urlImage(result.authorDetails.avatarPath!)),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             ),
             Expanded(
@@ -43,7 +44,7 @@ class ItemReviewWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(result.author,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
                             )),
@@ -69,18 +70,18 @@ class ItemReviewWidget extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
                     Text(result.content,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.normal)),
                   ]),
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 20.0,
         )
       ],

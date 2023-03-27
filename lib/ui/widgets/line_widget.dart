@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo_movieapp/ui/general/colors.dart';
 
+//ignore: must_be_immutable
 class LineWidget extends StatelessWidget {
-
   double width;
 
+  // ignore: use_key_in_widget_constructors
   LineWidget({required this.width});
 
   @override
