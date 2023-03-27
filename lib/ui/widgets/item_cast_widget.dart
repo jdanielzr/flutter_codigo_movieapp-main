@@ -1,8 +1,17 @@
-
 import 'package:flutter/material.dart';
 
 class ItemCastWidget extends StatelessWidget {
-  const ItemCastWidget({Key? key}) : super(key: key);
+  String name;
+  String character;
+  String knownForDepartment;
+  String? profilePath;
+
+  ItemCastWidget(
+      {super.key,
+      required this.name,
+      required this.character,
+      required this.knownForDepartment,
+      this.profilePath});
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +23,15 @@ class ItemCastWidget extends StatelessWidget {
           CircleAvatar(
             radius: 40,
             backgroundColor: Colors.white12,
-            backgroundImage: NetworkImage(
-                "https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+            backgroundImage: NetworkImage(profilePath == null
+                ? "https://objetivoligar.com/wp-content/uploads/2017/03/blank-profile-picture-973460_1280-580x580.jpg"
+                : "https://image.tmdb.org/t/p/w500$profilePath"),
           ),
           const SizedBox(
             height: 4.0,
           ),
           Text(
-            "Daniel Gonzales",
+            name,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
@@ -31,7 +41,7 @@ class ItemCastWidget extends StatelessWidget {
             ),
           ),
           Text(
-            "Actor de reparto",
+            this.knownForDepartment,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
